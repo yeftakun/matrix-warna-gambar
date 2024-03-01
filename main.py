@@ -6,6 +6,7 @@ from tkinter import *
 from PIL import Image
 from tkinter import messagebox
 import tkinter.ttk as ttk
+import os
 
 def openFile():
     msg["text"] = 'Memproses...'
@@ -18,16 +19,19 @@ def openFile():
             pixels.append(list(i))
         width, height = im.size
         pixels = [pixels[i * width:(i + 1) * width] for i in range(height)]
-        ##continuar para pegar os pixels e ler como img
         
-        w = open('WarnaMatrix.txt','w')
-        w.writelines(str(pixels))
-        w.close()
-        messagebox.showinfo('OK','Matrix berhasil dibuat!\nPeriksa file WarnaMatrix.txt di direktori saat ini!')
+        # Menyimpan matriks warna ke dalam file WarnaMatrix.txt di direktori ./hasil/
+        output_dir = './hasil/'
+        os.makedirs(output_dir, exist_ok=True)
+        output_file_path = os.path.join(output_dir, 'WarnaMatrix.txt')
+        with open(output_file_path, 'w') as w:
+            w.writelines(str(pixels))
+        
+        messagebox.showinfo('OK','Matrix berhasil dibuat!\nPeriksa file WarnaMatrix.txt di direktori ./hasil/!')
         msg["text"] = ''
-    except:
+    except Exception as e:
+        print(e)
         msg["text"] = ''
-        pass
 
 #main
 window = Tk()
@@ -37,8 +41,4 @@ window.geometry('450x100+300+50')
 k.pack()
 msg = ttk.Label(window,text='')
 msg.pack()
-window.mainloop()   
-
-
-
-#salva matrix 3D de cores da imagem no txt
+window.mainloop()

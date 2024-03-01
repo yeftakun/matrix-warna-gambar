@@ -1,4 +1,5 @@
 {
-    "editor.wordWrap": "off",
-    "files.autoSave": "afterDelay"
+    "editor.wordWrap": "on",
+    "files.autoSave": "off",
+    "editor.minimap.enabled": false
 }

@@ -4,6 +4,7 @@ from PIL import Image
 from tkinter import messagebox
 import tkinter.ttk as ttk
 import ast
+import os
 
 def openFile():
     msg["text"] = 'Memproses...'
@@ -20,8 +21,13 @@ def openFile():
             for x in range(width):
                 im.putpixel((x, y), tuple(pixels[y][x]))
 
-        im.save("hasil_gambar.png")
-        messagebox.showinfo('OK', 'Gambar berhasil dibuat!\nPeriksa file hasil_gambar.png di direktori saat ini!')
+        # Menyimpan hasil gambar di direktori ./hasil/
+        output_dir = './hasil/'
+        os.makedirs(output_dir, exist_ok=True)
+        output_file_path = os.path.join(output_dir, 'hasil_gambar.png')
+        im.save(output_file_path)
+        
+        messagebox.showinfo('OK', 'Gambar berhasil dibuat!\nPeriksa file hasil_gambar.png di direktori ./hasil/!')
         msg["text"] = ''
     except Exception as e:
         print(e)
