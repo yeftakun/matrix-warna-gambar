@@ -1,6 +1,3 @@
-'''
-pip install Pillow
-'''
 from tkinter import filedialog
 from tkinter import *
 from PIL import Image
