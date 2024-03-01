@@ -16,4 +16,4 @@ pip install Pillow
 
 ---
 
-[Referensi](https://github.com/indianwhocodes/SparseCodingProject) | [Video Demo](sl.unsrat.ac.id/Demo1PengolahanCitra_yeftaasyel)
+[Referensi](https://github.com/indianwhocodes/SparseCodingProject) | [Video Demo](https://sl.unsrat.ac.id/Demo1PengolahanCitra_yeftaasyel)
