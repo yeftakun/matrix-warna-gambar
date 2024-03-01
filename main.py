@@ -1,5 +1,4 @@
 '''
-instale as seguintes bibliotecas no py com os comandos:
 pip install Pillow
 '''
 from tkinter import filedialog
